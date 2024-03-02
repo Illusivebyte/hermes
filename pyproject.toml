@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes"
+authors = [
+    {name = "Jared Peterson"},
+]
+description = "A flask based webhook bot"
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["mattermost", "webhooks", "web", "github"]
+license = {text = "MIT"}
+classifiers = [
+    "Framework :: Flask",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "flask~= 3.0",
+    "mattermostdriver~= 7.3",
+    "pyyaml~=6.0"
+]
+version = "0.0.1"

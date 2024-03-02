@@ -7,7 +7,7 @@ from typing import List
 import web
 import bot
 
-_LOGGER = getLogger("mattermost-hook-helper")
+_LOGGER = getLogger("hermes")
 formatter = Formatter('%(asctime)s - %(name)s - %(threadName)s - %(levelname)s - %(message)s')
 ch = StreamHandler()
 ch.setFormatter(formatter)
@@ -49,7 +49,7 @@ def load_secrets() -> List:
     return secrets_list
 
 
-if __name__ == "__main__":
+def main() -> None:
     s_list = load_secrets()
     c_obj = load_config()
     msgs = Queue()
@@ -59,7 +59,8 @@ if __name__ == "__main__":
     web.set_secrets(s_list)
     web.set_messages(msgs)
     web.run()
+    exit(0)
 
-    
-
-
+if __name__ == "__main__":
+    main()
+ 
