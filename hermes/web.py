@@ -14,7 +14,7 @@ def set_messages(messages):
     global _MESSAGES
     _MESSAGES = messages
 
-app = Flask("mattermost hook helper")
+app = Flask("hermes")
 
 def run():
     global app
