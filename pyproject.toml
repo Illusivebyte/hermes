@@ -1,12 +1,9 @@
-[build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "hermes"
 authors = [
     {name = "Jared Peterson"},
 ]
+version = "0.0.1"
 description = "A flask based webhook bot"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -17,8 +14,30 @@ classifiers = [
     "Programming Language :: Python :: 3",
 ]
 dependencies = [
-    "flask~= 3.0",
-    "mattermostdriver~= 7.3",
-    "pyyaml~=6.0"
+    "flask == 3.0.2",
+    "mattermostdriver == 7.3.2",
+    "pyyaml == 6.0.1",
+    "waitress == 3.0.0"
 ]
-version = "0.0.1"
+
+
+[project.scripts]
+hermes = "hermes.__main__:main"
+
+
+[project.optional-dependencies]
+dev = [
+    "flask ~= 3.0",
+    "mattermostdriver ~= 7.3",
+    "pyyaml ~= 6.0",
+    "waitress ~= 3.0"
+]
+
+build = [
+   "wheel ~= 0.42",
+   "build ~= 1.1"
+]
+
+
+[tool.distutils.bdist_wheel]
+universal = true
