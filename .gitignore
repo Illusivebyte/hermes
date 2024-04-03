@@ -121,7 +121,7 @@ celerybeat.pid
 
 # Environments
 .env
-.venv
+.venv*
 env/
 venv/
 ENV/
@@ -163,3 +163,4 @@ cython_debug/
 
 secrets.yml
 config.yml
+hooks.yml
