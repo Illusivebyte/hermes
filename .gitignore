@@ -161,6 +161,8 @@ cython_debug/
 
 .vscode
 
+.local
+
 secrets.yml
 config.yml
 hooks.yml
