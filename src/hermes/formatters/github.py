@@ -35,7 +35,7 @@ class GithubFormatter(Formatter):
         attachment["author_link"] = "https://github.com"
         attachment["thumb_url"] = "https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png"
         tokens = event.split()
-        tokens = [token[0].upper() for token in tokens]
+        tokens = [token[0].upper() + token[1:] for token in tokens]
         event_name = " ".join(tokens)
         attachment["title"] = event_name
         return attachment
