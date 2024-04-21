@@ -11,10 +11,16 @@ _LOGGER = getLogger("hermes.bot")
 
 class MattermostBot:
     def __init__(self, bot_config: Dict, msg_q: Queue) -> None:
+        scheme = ""
+        if "https" not in bot_config:
+            scheme = "https"
+        if "https" in bot_config:
+            scheme = "http" if  not bot_config["https"] else "https"
         self.driver = Driver({
             "url": bot_config["url"],
             "token": bot_config["token"],
-            "port": bot_config["port"]
+            "port": bot_config["port"],
+            "scheme": scheme
         })
         self.team = bot_config["team"]
         self.channel = bot_config["channel"]
