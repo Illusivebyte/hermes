@@ -1,4 +1,4 @@
-from os import getenv
+from time import sleep
 from logging import getLogger
 from queue import Queue, Empty
 from mattermostdriver import Driver
@@ -40,6 +40,7 @@ class MattermostBot:
             try:
                 msg_obj = self.msg_q.get(block=False) 
             except Empty:
+                sleep(1)
                 continue
             attachments = GithubFormatter.format(msg_obj)
             self.driver.posts.create_post(options={
